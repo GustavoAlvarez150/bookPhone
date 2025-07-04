@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\bookPhone;
 
 class bookPhoneC extends Controller
 {
@@ -12,7 +13,7 @@ class bookPhoneC extends Controller
     }
 
     public function savePhone(Request $request){
-        bookPhone::create($request->only('name','phone','date'));
+        bookPhone::create($request->only('name','phone','birthdate'));
         return response()->json(['mensaje' => 'Contacto guardado exitosamente']);
     }
 }

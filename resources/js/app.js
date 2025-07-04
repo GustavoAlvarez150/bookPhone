@@ -22,28 +22,22 @@ idBtnAdd.addEventListener('click', function(){
 
 idBtnSavePhone.addEventListener('click', function(){
     
-    if(idInptName.value.trim()  && idInpPhone.value.trim() &&  idInptDate.value.trim()){
-        alert("hgola");
-        sendToData(idInptName.value, idInpPhone.value, idInptDate.value);
-        
-    }else{
-        alert("Favor de llenar todos los campos");
-    }
+     if(idInptName.value.trim()  && idInpPhone.value.trim() &&  idInptDate.value.trim()){
+         sendToData(idInptName.value, idInpPhone.value, idInptDate.value);
+     }else{
+         alert("Favor de llenar todos los campos");
+     }
 });
 
 
 async function  sendToData(nameI, phoneI, dateI){
+    const data = {name: nameI, phone: phoneI, birthdate: dateI};
     try{
-        const response = await fetch('/savePhone',{
+        const response = await fetch('/bookPhone',{
             method: 'POST',
-            headers: {'Content-type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+            headers: {'Content-type': 'application/json','X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
             },
-            body: JSON.stringify({
-                    name: nameI, 
-                    phone: phoneI,
-                    date: dateI
-                })
+            body: JSON.stringify(data),
             
     });
     const result = await response.json();
