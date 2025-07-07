@@ -10,6 +10,13 @@ class bookPhoneC extends Controller
 {
     public function showBookPhoneV(){
         return view('bookPhone');
+       
+    }
+
+    public function getBookPhone(){
+         $usuarios = bookPhone::all();
+        return response()->json($usuarios);
+       
     }
 
     public function savePhone(Request $request){

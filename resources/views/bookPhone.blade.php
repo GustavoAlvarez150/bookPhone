@@ -43,21 +43,22 @@
     <button id="idBtnAddPhone" class="btn btn-primary">Agregar teléfono</button>
 </div>
 <div class="table">
-            <table id="example" class="table table-striped">
+            <table  class="table table-striped">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Nombre</th>
                 <th>Teléfono</th>
                 <th>Fecha</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="idTable">
            
-            <tr>
+            <!-- <tr>
                 <td>Donna Snider</td>
                 <td>Customer Support</td>
                 <td>New York</td>
-            </tr>
+            </tr> -->
         </tbody>
     
     </table>

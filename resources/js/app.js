@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var idInptName = document.getElementById("idInpname");
     var idInpPhone = document.getElementById("idInpNumber");
     var idInptDate = document.getElementById("idInpDate");
+    var idTable = document.getElementById("idTable");
 
 var idBtnAdd = document.getElementById("idBtnAddPhone");
  var mod = document.getElementById("mdlRegister");
@@ -47,8 +48,32 @@ async function  sendToData(nameI, phoneI, dateI){
     }
 
 }
+showDataTablle();
 
-
-
+async function showDataTablle(){
+    try{
+        const response = await fetch('/test',{
+            method:'GET',
+        });
+        const result = await response.json();
+        printTable(result);
+    }catch(error){
+        alert("No es posible consultar tu información"+error);
+    }
+}
 });
+
+function printTable(json){
+    var table = "";
+    for(var i = 0; i < json.length; i++){
+        table +="<tr>"+
+    "<td>" + json[i].id + "</td>" +
+    "<td>" + json[i].name + "</td>" + 
+    "<td>" + json[i].phone + "</td>" +
+    "<td>" + json[i].birthdate + "</td>";
+
+    }
+    
+    idTable.innerHTML = table;
+}
 

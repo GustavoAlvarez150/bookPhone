@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\bookPhoneC;
 
+
+
 Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
@@ -14,7 +16,7 @@ Route::get('dashboard', function () {
 
 
 Route::get('/bookPhone',[bookPhoneC::class,'showBookPhoneV']);
-
+Route::get('/test',[bookPhoneC::class,'getBookPhone']);
 Route::post('/bookPhone',[bookPhoneC::class,'savePhone']);
 
 
