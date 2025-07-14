@@ -1,6 +1,9 @@
 import 'bootstrap';
 import { Modal, Tooltip, Collapse } from 'bootstrap';
+import { createApp } from 'vue';
+import LoginForm from './components/LoginForm.vue';
 
+createApp(LoginForm).mount('#app');
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -32,7 +35,7 @@ idBtnSavePhone.addEventListener('click', function(){
 
 
 async function  sendToData(nameI, phoneI, dateI){
-    const data = {name: nameI, phone: phoneI, birthdate: dateI};
+    const data = {name: nameI, phone: phoneI, date: dateI};
     try{
         const response = await fetch('/bookPhone',{
             method: 'POST',
@@ -43,6 +46,7 @@ async function  sendToData(nameI, phoneI, dateI){
     });
     const result = await response.json();
     alert(result.mensaje || 'Guardado con exito');
+    console.log(result.mensaje);
     }catch(error){
         alert("Ha ocurrido un error al realizar la inserción a base de datos."+ error);
     }
@@ -70,7 +74,7 @@ function printTable(json){
     "<td>" + json[i].id + "</td>" +
     "<td>" + json[i].name + "</td>" + 
     "<td>" + json[i].phone + "</td>" +
-    "<td>" + json[i].birthdate + "</td>";
+    "<td>" + json[i].date + "</td>";
 
     }
     

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('book_phones', function (Blueprint $table) {
+        Schema::create('users', function(Blueprint $table){
             $table->id();
-            $table->string('name');
-            $table->biInteger('phone');
-            $table->date('date');
-            $table->timestamps();
+            $table->string('mail', 191)->unique();
+            $table->string('password');
         });
+
     }
 
     /**
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('book_phones');
+        Schema::dropIfExists('users');
     }
 };

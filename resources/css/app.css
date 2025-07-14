@@ -8,6 +8,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.center-div{
+    display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
 @theme inline {
     --font-sans: Instrument Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
